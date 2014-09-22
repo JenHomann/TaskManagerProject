@@ -64,7 +64,10 @@ class TasksController < ApplicationController
     #   render "show"
     # else
       @task.users << @user
-      @user.send_task_email(@task)
+      # The below code is used to send an email via ActionMailer
+      UserMailer.task_assigned(@user, @task).deliver
+      # The below code is used to call the Pony method, which is saved in the User model
+      # @user.send_task_email(@task)
 
       redirect_to dashboard_path, :notice => "The task has been assigned to #{@user.name}."
     # end

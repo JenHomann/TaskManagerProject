@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
+      UserMailer.welcome(@user).deliver
       redirect_to dashboard_path(@user.id)
     else
       render "new"
