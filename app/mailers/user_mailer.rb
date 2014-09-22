@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "mpjeno@gmail.com"
+  default from: 'mpjeno123Test@gmail.com'
   
   # Sends an email when a new user is created
   def welcome(user)
