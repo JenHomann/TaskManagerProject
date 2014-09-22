@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       :via_options => {
         :address => 'smtp.gmail.com',
         :port => '587',
-        # :authentication => :plain,
+        :authentication => :plain,
         :user_name => ENV['EMAIL'],
         :password => ENV['EMAIL_PASSWORD']
       }
