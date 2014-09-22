@@ -52,3 +52,5 @@ group :development, :test do
 end
 
 ruby '2.1.2'
+
+gem 'dotenv-rails'

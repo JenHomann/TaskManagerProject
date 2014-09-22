@@ -60,14 +60,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @user = User.find(params[:task][:users].to_i)
 
-    if @task.users.include? @user
-      render "show"
-    else
+    # if @task.users.include? @user
+    #   render "show"
+    # else
       @task.users << @user
       @user.send_task_email(@task)
 
-      redirect_to task_path(@task.id), :notice => "The task has been assigned to #{@user.name}."
-    end
+      redirect_to dashboard_path, :notice => "The task has been assigned to #{@user.name}."
+    # end
   end
 
   def add_comment

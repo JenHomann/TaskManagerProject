@@ -13,16 +13,16 @@ class User < ActiveRecord::Base
   def send_task_email(task)
     Pony.mail({
       :to => email,
-      :from => 'rpjktest.email@gmail.com',
+      :from => ENV['EMAIL'],
       :subject => 'hi ' + name,
       :body => 'Hello there ' + name + ' your task is ' + task.name,
       :via => :smtp,
       :via_options => {
         :address => 'smtp.gmail.com',
         :port => '587',
-        :authentication => :plain,
-        :user_name => 'rpjktest.email@gmail.com',
-        :password => 'Testpassword'
+        # :authentication => :plain,
+        :user_name => ENV['EMAIL'],
+        :password => ENV['EMAIL_PASSWORD']
       }
     })
   

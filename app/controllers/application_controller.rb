@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         reset_session
         redirect_to root_path
       end  
-    end
+    end 
   end
 
   def authorize
